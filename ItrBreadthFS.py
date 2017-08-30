@@ -1,14 +1,3 @@
-# ItrBreadthFS.py, Mar 2017 
-# Based on ItrDFS.py, Ver 0.3, April, 2017.
-
-# Iterative Breadth-First Search of a problem space.
-# The Problem should be given in a separate Python
-# file using the "QUIET" file format.
-# See the TowersOfHanoi.py example file for details.
-# Examples of Usage:
-# python3 ItrBFS.py TowersOfHanoi
-# python3 ItrBFS.py EightPuzzle
-
 import sys
 
 if sys.argv==[''] or len(sys.argv)<2:
@@ -24,7 +13,7 @@ COUNT = None
 BACKLINKS = {}
 
 #DO NOT CHANGE THIS FUNCTION
-def runBFS(): 
+def runBFS():
   initial_state = Problem.CREATE_INITIAL_STATE()
   print("Initial State:")
   print(initial_state)
@@ -57,8 +46,8 @@ def IterativeBFS(initial_state):
             path = backtrace(S)
             return path, Problem.PROBLEM_NAME
 
-        # DO NOT CHANGE THE CODE ABOVE 
-        
+        # DO NOT CHANGE THE CODE ABOVE
+
         # TODO: finish BFS implementation
         for op in Problem.OPERATORS:
             print("Trying operator: "+op.name)
@@ -73,7 +62,7 @@ def IterativeBFS(initial_state):
 # DO NOT CHANGE
 def backtrace(S):
   global BACKLINKS
-  path = [] 
+  path = []
   while not S == -1:
     path.append(S)
     S = BACKLINKS[S]
@@ -82,8 +71,7 @@ def backtrace(S):
   for s in path:
     print(s)
   print("\nPath length = "+str(len(path)-1))
-  return path    
+  return path
 
 if __name__=='__main__':
   path, name = runBFS()
-
